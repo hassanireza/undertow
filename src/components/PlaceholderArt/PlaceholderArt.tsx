@@ -23,7 +23,7 @@ export class ArtSeed {
 
 interface PlaceholderArtProps {
   seed: string;
-  className?: string;
+  className?: string | undefined;
 }
 
 export function PlaceholderArt({ seed, className }: PlaceholderArtProps): ReactElement {

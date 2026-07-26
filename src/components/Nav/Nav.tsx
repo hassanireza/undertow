@@ -16,7 +16,7 @@ export function Nav(): ReactElement {
   return (
     <header className={styles.header}>
       <div className={`wrap ${styles.bar}`}>
-        <NavLink to="/" className={styles.mark} onClick={() => setIsOpen(false)}>
+        <NavLink to="/" className={styles.mark ?? ""} onClick={() => setIsOpen(false)}>
           Undertow
         </NavLink>
 
