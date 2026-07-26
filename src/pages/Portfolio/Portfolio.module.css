@@ -1,0 +1,65 @@
+.section {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-9);
+}
+
+.heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-7);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7) var(--space-5);
+}
+
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  display: block;
+  group: card;
+}
+
+.plate {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-liturgy);
+}
+
+.card:hover .plate {
+  transform: scale(1.02);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: var(--space-3);
+  border-top: 1px solid var(--color-line);
+  padding-top: var(--space-2);
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-accent);
+}
+
+.summary {
+  margin-top: var(--space-1);
+  font-size: 0.9rem;
+}
