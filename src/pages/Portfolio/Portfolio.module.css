@@ -51,6 +51,19 @@
 .cardTitle {
   font-size: 1.4rem;
   margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cardIcon {
+  color: var(--color-accent);
+  transform: translate(0, 0);
+  transition: transform 0.3s var(--ease-standard);
+}
+
+.card:hover .cardIcon {
+  transform: translate(2px, -2px);
 }
 
 .index {

@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import { Link } from "react-router-dom";
 
+import { Icon } from "@/components/Icon/Icon";
 import { PLANS, SERVICES } from "@/domain/Offering";
 
 import styles from "./Home.module.css";
@@ -16,8 +17,14 @@ export function Home(): ReactElement {
           and motion work, built one deliberate frame at a time.
         </p>
         <div className={styles.rule}>
-          <Link to="/work">View the work</Link>
-          <Link to="/contact">Start a project</Link>
+          <Link to="/work" className={styles.ruleLink}>
+            View the work
+            <Icon name="arrow-right" size={14} />
+          </Link>
+          <Link to="/contact" className={styles.ruleLink}>
+            Start a project
+            <Icon name="arrow-right" size={14} />
+          </Link>
         </div>
       </section>
 
@@ -58,8 +65,9 @@ export function Home(): ReactElement {
                   </span>
                 ))}
               </div>
-              <Link to="/contact" className="button" style={{ textAlign: "center" }}>
+              <Link to="/contact" className="button" style={{ justifyContent: "center" }}>
                 Start with {plan.name}
+                <Icon name="arrow-right" size={14} />
               </Link>
             </div>
           ))}
@@ -70,6 +78,7 @@ export function Home(): ReactElement {
         <h2 className={styles.ctaHeading}>Ready to build something exceptional?</h2>
         <Link to="/contact" className="button">
           Let&rsquo;s talk
+          <Icon name="arrow-right" size={16} />
         </Link>
       </section>
     </>

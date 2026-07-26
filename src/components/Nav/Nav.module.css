@@ -28,6 +28,9 @@
   border: none;
   padding: var(--space-1) 0;
   background: none;
+  display: flex;
+  align-items: center;
+  color: var(--color-ink);
 }
 
 .toggle:hover {

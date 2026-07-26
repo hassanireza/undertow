@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import { Icon } from "../Icon/Icon";
 import { Logo } from "../Logo/Logo";
 import styles from "./Nav.module.css";
 
@@ -28,7 +29,7 @@ export function Nav(): ReactElement {
           aria-label="Toggle menu"
           onClick={() => setIsOpen((prev) => !prev)}
         >
-          {isOpen ? "Close" : "Menu"}
+          <Icon name={isOpen ? "close" : "menu"} size={22} />
         </button>
 
         <nav className={`${styles.links} ${isOpen ? styles.linksOpen : ""}`} aria-label="Primary">

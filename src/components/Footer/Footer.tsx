@@ -1,5 +1,6 @@
 import type { ReactElement } from "react";
 
+import { Icon } from "../Icon/Icon";
 import styles from "./Footer.module.css";
 
 export function Footer(): ReactElement {
@@ -13,6 +14,7 @@ export function Footer(): ReactElement {
           Site by{" "}
           <a href="https://hassanireza.github.io/" target="_blank" rel="noreferrer">
             Reza Hassani
+            <Icon name="arrow-up-right" size={12} className={styles.creditIcon} />
           </a>
         </span>
       </div>
