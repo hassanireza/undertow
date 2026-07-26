@@ -5,6 +5,12 @@ import { BrowserRouter } from "react-router-dom";
 import { App } from "@/App";
 import "@/styles/global.css";
 
+const redirect = sessionStorage.redirect;
+delete sessionStorage.redirect;
+if (redirect && redirect !== location.href) {
+  history.replaceState(null, "", redirect);
+}
+
 const rootElement = document.getElementById("root");
 if (!rootElement) {
   throw new Error("Root element not found");
