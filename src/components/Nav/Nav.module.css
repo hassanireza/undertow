@@ -16,10 +16,12 @@
 }
 
 .mark {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.4rem;
   color: var(--color-ink);
+  transition: color 0.3s var(--ease-standard);
+}
+
+.mark:hover {
+  color: var(--color-accent);
 }
 
 .toggle {

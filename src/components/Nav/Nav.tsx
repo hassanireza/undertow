@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import { Logo } from "../Logo/Logo";
 import styles from "./Nav.module.css";
 
 const LINKS = [
@@ -17,7 +18,7 @@ export function Nav(): ReactElement {
     <header className={styles.header}>
       <div className={`wrap ${styles.bar}`}>
         <NavLink to="/" className={styles.mark ?? ""} onClick={() => setIsOpen(false)}>
-          Undertow
+          <Logo />
         </NavLink>
 
         <button
