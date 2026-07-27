@@ -91,6 +91,11 @@ textarea {
   padding: var(--space-2) 0;
   border-radius: 0;
   transition: border-color 0.3s var(--ease-standard);
+  width: 100%;
+}
+
+textarea {
+  resize: none;
 }
 
 html {
@@ -106,6 +111,12 @@ a,
 *:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  *:focus-visible {
+    outline: none;
+  }
 }
 
 input:focus,

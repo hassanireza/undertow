@@ -1,5 +1,6 @@
 import type { ReactElement } from "react";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { NavLink, useLocation } from "react-router-dom";
 import gsap from "gsap";
 
@@ -99,6 +100,37 @@ export function Nav(): ReactElement {
     return undefined;
   }, [isOpen]);
 
+  const menuPanel = (
+    <div
+      id="mobile-menu"
+      ref={panelRef}
+      className={styles.menuPanel}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+    >
+      <nav className={styles.menuNav} aria-label="Mobile primary">
+        {LINKS.map((link, i) => (
+          <NavLink
+            key={link.to}
+            to={link.to}
+            className={({ isActive }) => `${styles.menuLink} ${isActive ? styles.menuLinkActive : ""}`}
+          >
+            <span className={styles.menuLinkIndex}>{String(i + 1).padStart(2, "0")}</span>
+            {link.label}
+          </NavLink>
+        ))}
+      </nav>
+
+      <div className={styles.menuFooter}>
+        <a href="mailto:hello@undertow.dev" className={styles.menuContact}>
+          <Icon name="mail" size={16} />
+          hello@undertow.dev
+        </a>
+      </div>
+    </div>
+  );
+
   return (
     <header className={styles.header}>
       <div className={`wrap ${styles.bar}`}>
@@ -131,34 +163,7 @@ export function Nav(): ReactElement {
         </nav>
       </div>
 
-      <div
-        id="mobile-menu"
-        ref={panelRef}
-        className={styles.menuPanel}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Mobile navigation"
-      >
-        <nav className={styles.menuNav} aria-label="Mobile primary">
-          {LINKS.map((link, i) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={({ isActive }) => `${styles.menuLink} ${isActive ? styles.menuLinkActive : ""}`}
-            >
-              <span className={styles.menuLinkIndex}>{String(i + 1).padStart(2, "0")}</span>
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
-
-        <div className={styles.menuFooter}>
-          <a href="mailto:hello@undertow.dev" className={styles.menuContact}>
-            <Icon name="mail" size={16} />
-            hello@undertow.dev
-          </a>
-        </div>
-      </div>
+      {createPortal(menuPanel, document.body)}
     </header>
   );
 }
