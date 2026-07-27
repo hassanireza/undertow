@@ -1,7 +1,6 @@
 import type { FormEvent, ReactElement } from "react";
 import { useState } from "react";
 
-import { Icon } from "@/components/Icon/Icon";
 import { InquiryPayload, InquiryService } from "@/services/InquiryService";
 
 import styles from "./Contact.module.css";
@@ -94,7 +93,6 @@ export function Contact(): ReactElement {
 
         <button type="submit" disabled={state === "submitting"}>
           {state === "submitting" ? "Sending…" : "Send"}
-          {state !== "submitting" && <Icon name="arrow-right" size={14} />}
         </button>
         {state === "error" && <p role="alert">Something went wrong. Try again.</p>}
       </form>

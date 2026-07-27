@@ -10,11 +10,6 @@ interface IconProps {
   title?: string;
 }
 
-/**
- * Undertow icon pack — inline stroke icons rendered in the same visual
- * language as the mark (rounded caps/joins, thin uniform stroke).
- * Color is inherited via `currentColor`, so set `color` in CSS to theme it.
- */
 export function Icon({ name, size = 20, strokeWidth = 1.6, className, title }: IconProps): ReactElement {
   return (
     <svg

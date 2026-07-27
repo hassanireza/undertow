@@ -2,7 +2,6 @@ import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { Icon } from "@/components/Icon/Icon";
 import { PlaceholderArt } from "@/components/PlaceholderArt/PlaceholderArt";
 import { ProjectDetail } from "@/domain/Project";
 import { ProjectService } from "@/services/ProjectService";
@@ -62,7 +61,6 @@ export function ProjectPage(): ReactElement {
         className={`button ${styles.portfolioLink}`}
       >
         View more work
-        <Icon name="external-link" size={14} />
       </a>
     </article>
   );

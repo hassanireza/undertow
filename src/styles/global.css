@@ -101,9 +101,7 @@ textarea:focus {
 
 button,
 .button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  display: inline-block;
   background: transparent;
   border: 1px solid var(--color-ink);
   color: var(--color-ink);

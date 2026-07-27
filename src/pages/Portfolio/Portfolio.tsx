@@ -2,7 +2,6 @@ import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Icon } from "@/components/Icon/Icon";
 import { PlaceholderArt } from "@/components/PlaceholderArt/PlaceholderArt";
 import { ProjectSummary } from "@/domain/Project";
 import { ProjectService } from "@/services/ProjectService";
@@ -53,10 +52,7 @@ export function Portfolio(): ReactElement {
                 <PlaceholderArt seed={project.slug} className={styles.plate} />
               )}
               <div className={styles.meta}>
-                <h2 className={styles.cardTitle}>
-                  {project.title}
-                  <Icon name="arrow-up-right" size={16} className={styles.cardIcon} />
-                </h2>
+                <h2 className={styles.cardTitle}>{project.title}</h2>
                 <span className={styles.index}>{String(i + 1).padStart(2, "0")}</span>
               </div>
               {project.summary && <p className={styles.summary}>{project.summary}</p>}

@@ -1,12 +1,22 @@
 import type { ReactElement } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Icon } from "@/components/Icon/Icon";
-import { PLANS, SERVICES } from "@/domain/Offering";
+import { SERVICES } from "@/domain/Offering";
+import { Package } from "@/domain/Package";
+import { PackageService } from "@/services/PackageService";
 
 import styles from "./Home.module.css";
 
+const packageService = new PackageService();
+
 export function Home(): ReactElement {
+  const [packages, setPackages] = useState<Package[]>([]);
+
+  useEffect(() => {
+    packageService.listPackages().then(setPackages).catch(() => setPackages([]));
+  }, []);
+
   return (
     <>
       <section className={`wrap ${styles.hero}`}>
@@ -17,14 +27,8 @@ export function Home(): ReactElement {
           and motion work, built one deliberate frame at a time.
         </p>
         <div className={styles.rule}>
-          <Link to="/work" className={styles.ruleLink}>
-            View the work
-            <Icon name="arrow-right" size={14} />
-          </Link>
-          <Link to="/contact" className={styles.ruleLink}>
-            Start a project
-            <Icon name="arrow-right" size={14} />
-          </Link>
+          <Link to="/work">View the work</Link>
+          <Link to="/contact">Start a project</Link>
         </div>
       </section>
 
@@ -52,22 +56,21 @@ export function Home(): ReactElement {
         </p>
 
         <div className={styles.planGrid}>
-          {PLANS.map((plan) => (
-            <div key={plan.name} className={`${styles.planCard} ${plan.featured ? styles.planFeatured : ""}`}>
+          {packages.map((pkg) => (
+            <div key={pkg.id} className={`${styles.planCard} ${pkg.isFeatured ? styles.planFeatured : ""}`}>
               <div>
-                <h3 className={styles.planTitle}>{plan.name}</h3>
-                <span className={styles.planPrice}>{plan.price}</span>
+                <h3 className={styles.planTitle}>{pkg.name}</h3>
+                <span className={styles.planPrice}>{pkg.priceDisplay}</span>
               </div>
               <div className={styles.planFeatures}>
-                {plan.features.map((feature) => (
-                  <span key={feature} className={styles.planFeature}>
-                    {feature}
+                {pkg.features.map((feature) => (
+                  <span key={feature.id} className={styles.planFeature}>
+                    {feature.text}
                   </span>
                 ))}
               </div>
-              <Link to="/contact" className="button" style={{ justifyContent: "center" }}>
-                Start with {plan.name}
-                <Icon name="arrow-right" size={14} />
+              <Link to={`/checkout/${pkg.slug}`} className="button" style={{ textAlign: "center" }}>
+                Start with {pkg.name}
               </Link>
             </div>
           ))}
@@ -78,7 +81,6 @@ export function Home(): ReactElement {
         <h2 className={styles.ctaHeading}>Ready to build something exceptional?</h2>
         <Link to="/contact" className="button">
           Let&rsquo;s talk
-          <Icon name="arrow-right" size={16} />
         </Link>
       </section>
     </>
