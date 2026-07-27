@@ -1,10 +1,74 @@
 .footer {
   border-top: 1px solid var(--color-line);
-  padding-top: var(--space-4);
-  padding-bottom: var(--space-4);
+  padding-top: var(--space-7);
 }
 
-.row {
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  padding-bottom: var(--space-7);
+}
+
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  color: var(--color-ink);
+}
+
+.tagline {
+  max-width: 32ch;
+  font-size: 0.85rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.columnHeading {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footerLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-ink-soft);
+  width: fit-content;
+  border-bottom: 1px solid transparent;
+}
+
+.footerLink:hover {
+  color: var(--color-ink);
+  border-color: var(--color-accent);
+}
+
+.linkIcon {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.bottomBar {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -12,21 +76,24 @@
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   color: var(--color-ink-soft);
+  border-top: 1px solid var(--color-line);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
 }
 
 @media (min-width: 700px) {
-  .row {
+  .bottomBar {
     flex-direction: row;
     justify-content: space-between;
   }
 }
 
 .credit a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
   color: var(--color-ink-soft);
   border-bottom: 1px solid var(--color-line-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .credit a:hover {
@@ -36,14 +103,4 @@
 
 .creditIcon {
   flex-shrink: 0;
-}
-
-.brandLink {
-  color: var(--color-ink-soft);
-  border-bottom: 1px solid transparent;
-}
-
-.brandLink:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
 }

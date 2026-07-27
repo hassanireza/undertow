@@ -58,13 +58,13 @@ export function Brand(): ReactElement {
         <h2 className={styles.blockHeading}>Construction and lockups</h2>
 
         <div className={styles.logoRow}>
-          <div>
+          <div className={styles.logoColumn}>
             <div className={styles.logoCard}>
               <Logo size={40} />
             </div>
             <p className={styles.logoCaption}>Horizontal. Primary lockup</p>
           </div>
-          <div>
+          <div className={styles.logoColumn}>
             <div className={`${styles.logoCard} ${styles.logoCardDark}`}>
               <span style={{ color: "var(--color-paper)" }}>
                 <Logo size={40} withWordmark={false} />
