@@ -3,6 +3,8 @@ import type { ReactElement } from "react";
 import { Icon } from "@/components/Icon/Icon";
 import type { IconName } from "@/components/Icon/icons";
 import { Logo } from "@/components/Logo/Logo";
+import { usePageTitle } from "@/hooks/usePageTitle";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import styles from "./Brand.module.css";
 
@@ -36,8 +38,11 @@ const ICONS: readonly IconName[] = [
 ];
 
 export function Brand(): ReactElement {
+  usePageTitle("Brand");
+  const sectionRef = useScrollReveal<HTMLElement>({ selector: `.${styles.block}`, stagger: 0 });
+
   return (
-    <section className={`wrap ${styles.section}`}>
+    <section ref={sectionRef} className={`wrap ${styles.section}`}>
       <span className="eyebrow">Brand guidelines</span>
       <h1 className={styles.heading}>The pull beneath the surface.</h1>
       <p className={styles.intro}>

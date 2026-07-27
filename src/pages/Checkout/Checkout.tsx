@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { Package } from "@/domain/Package";
+import { usePageTitle } from "@/hooks/usePageTitle";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { OrderService } from "@/services/OrderService";
 import { PackageService } from "@/services/PackageService";
 
@@ -20,6 +22,12 @@ export function Checkout(): ReactElement {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [state, setState] = useState<SubmitState>("idle");
+  usePageTitle(pkg ? `Checkout, ${pkg.name}` : "Checkout");
+  const sectionRef = useScrollReveal<HTMLElement>({
+    selector: `.${styles.heading}, .${styles.summary}, .${styles.row}`,
+    once: true,
+    y: 16,
+  });
 
   useEffect(() => {
     if (!slug) return;
@@ -45,7 +53,7 @@ export function Checkout(): ReactElement {
   if (!pkg) return <p className="wrap">Loading.</p>;
 
   return (
-    <section className={`wrap ${styles.section}`}>
+    <section ref={sectionRef} className={`wrap ${styles.section}`}>
       <span className="eyebrow">Checkout</span>
       <h1 className={styles.heading}>{pkg.name}</h1>
       <p className={styles.summary}>{pkg.priceDisplay}</p>

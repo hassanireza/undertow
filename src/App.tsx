@@ -15,16 +15,21 @@ import { ProjectPage } from "@/pages/ProjectPage/ProjectPage";
 export function App(): ReactElement {
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/work" element={<Portfolio />} />
-        <Route path="/work/:slug" element={<ProjectPage />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/checkout/:slug" element={<Checkout />} />
-        <Route path="/order/:id/confirmation" element={<OrderConfirmation />} />
-        <Route path="/brand" element={<Brand />} />
-      </Routes>
+      <main id="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/work" element={<Portfolio />} />
+          <Route path="/work/:slug" element={<ProjectPage />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/checkout/:slug" element={<Checkout />} />
+          <Route path="/order/:id/confirmation" element={<OrderConfirmation />} />
+          <Route path="/brand" element={<Brand />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   );

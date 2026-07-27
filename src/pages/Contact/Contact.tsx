@@ -1,15 +1,19 @@
 import type { FormEvent, ReactElement } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
+import { GsapSetup } from "@/animation/gsapSetup";
 import { InquiryPayload, InquiryService } from "@/services/InquiryService";
 
 import styles from "./Contact.module.css";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const inquiryService = new InquiryService();
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
 export function Contact(): ReactElement {
+  usePageTitle("Contact");
   const [form, setForm] = useState<InquiryPayload>({
     name: "",
     email: "",
@@ -18,6 +22,18 @@ export function Contact(): ReactElement {
     message: "",
   });
   const [state, setState] = useState<SubmitState>("idle");
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || GsapSetup.prefersReducedMotion()) return;
+
+    gsap.fromTo(
+      section.children,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.08 },
+    );
+  }, []);
 
   function updateField<K extends keyof InquiryPayload>(field: K, value: InquiryPayload[K]): void {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -36,14 +52,14 @@ export function Contact(): ReactElement {
 
   if (state === "success") {
     return (
-      <section className={`wrap ${styles.section}`}>
+      <section ref={sectionRef} className={`wrap ${styles.section}`}>
         <p className={styles.success}>Thanks. Your message is through, I&rsquo;ll reply by email.</p>
       </section>
     );
   }
 
   return (
-    <section className={`wrap ${styles.section}`}>
+    <section ref={sectionRef} className={`wrap ${styles.section}`}>
       <span className="eyebrow">Start a project</span>
       <h1 className={styles.heading}>Tell me what you're building.</h1>
 

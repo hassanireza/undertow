@@ -1,7 +1,7 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 30;
   background: color-mix(in srgb, var(--color-paper) 92%, transparent);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--color-line);
@@ -13,11 +13,15 @@
   justify-content: space-between;
   padding-top: var(--space-4);
   padding-bottom: var(--space-4);
+  position: relative;
+  z-index: 31;
 }
 
 .mark {
   color: var(--color-ink);
   transition: color 0.3s var(--ease-standard);
+  display: flex;
+  align-items: center;
 }
 
 .mark:hover {
@@ -26,7 +30,8 @@
 
 .toggle {
   border: none;
-  padding: var(--space-1) 0;
+  padding: var(--space-2);
+  margin: calc(var(--space-2) * -1);
   background: none;
   display: flex;
   align-items: center;
@@ -38,22 +43,14 @@
   color: var(--color-accent);
 }
 
+.toggle:focus-visible {
+  background: none;
+  color: var(--color-accent);
+}
+
 .links {
   display: none;
   gap: var(--space-6);
-}
-
-.linksOpen {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--color-paper);
-  border-bottom: 1px solid var(--color-line);
-  padding: var(--space-5) var(--space-4);
 }
 
 .link {
@@ -73,6 +70,66 @@
   border-color: var(--color-accent);
 }
 
+.menuPanel {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  background: var(--color-paper);
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--space-8) + var(--space-6)) var(--space-4) var(--space-6);
+  overflow-y: auto;
+}
+
+.menuNav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.menuLink {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(2.2rem, 12vw, 3rem);
+  color: var(--color-ink);
+  padding: var(--space-2) 0;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.menuLinkIndex {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
+
+.menuLinkActive {
+  color: var(--color-accent);
+}
+
+.menuFooter {
+  border-top: 1px solid var(--color-line);
+  padding-top: var(--space-5);
+}
+
+.menuContact {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+.menuContact:hover {
+  color: var(--color-accent);
+}
+
 @media (min-width: 700px) {
   .toggle {
     display: none;
@@ -82,12 +139,7 @@
     display: flex;
   }
 
-  .linksOpen {
-    position: static;
-    display: flex;
-    flex-direction: row;
-    border: none;
-    padding: 0;
-    background: none;
+  .menuPanel {
+    display: none !important;
   }
 }

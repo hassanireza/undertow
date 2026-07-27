@@ -179,3 +179,12 @@
   max-width: 18ch;
   margin-bottom: var(--space-5);
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .animIn {
+    opacity: 0;
+  }
+}
+
+.ctaButton {
+}
