@@ -1,0 +1,184 @@
+.section {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-6);
+}
+
+.heading {
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  max-width: 16ch;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.intro {
+  max-width: 62ch;
+  font-size: 1.05rem;
+}
+
+.block {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-7);
+  border-top: 1px solid var(--color-line);
+}
+
+.blockHeading {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.logoRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.logoCard {
+  flex: 1 1 220px;
+  border: 1px solid var(--color-line);
+  padding: var(--space-6) var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoCardDark {
+  background: var(--color-ink);
+}
+
+.logoCaption {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin-top: var(--space-2);
+  text-align: center;
+}
+
+.ruleList {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 60ch;
+}
+
+.ruleItem {
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-accent);
+}
+
+.ruleTitle {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 700px) {
+  .swatchGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.swatch {
+  border: 1px solid var(--color-line);
+}
+
+.swatchColor {
+  height: 96px;
+}
+
+.swatchLabel {
+  padding: var(--space-3);
+}
+
+.swatchName {
+  font-size: 1rem;
+  margin-bottom: var(--space-1);
+}
+
+.swatchHex {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-ink-soft);
+}
+
+.swatchUse {
+  font-size: 0.8rem;
+  margin-top: var(--space-1);
+}
+
+.typeGrid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.typeSpecimen {
+  border-top: 1px solid var(--color-line-strong);
+  padding-top: var(--space-4);
+}
+
+.typeName {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+.typeDisplay {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.typeBody {
+  font-size: 1.2rem;
+  color: var(--color-ink);
+  max-width: 55ch;
+}
+
+.typeMono {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--color-ink);
+}
+
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 700px) {
+  .iconGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.iconCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-2);
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+}
+
+.iconCellLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-ink-soft);
+  text-align: center;
+}

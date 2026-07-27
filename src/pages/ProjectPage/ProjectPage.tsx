@@ -1,12 +1,15 @@
 import type { ReactElement } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import gsap from "gsap";
 
+import { GsapSetup } from "@/animation/gsapSetup";
 import { PlaceholderArt } from "@/components/PlaceholderArt/PlaceholderArt";
 import { ProjectDetail } from "@/domain/Project";
 import { ProjectService } from "@/services/ProjectService";
 
 import styles from "./ProjectPage.module.css";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const projectService = new ProjectService();
 
@@ -14,6 +17,8 @@ export function ProjectPage(): ReactElement {
   const { slug } = useParams<{ slug: string }>();
   const [project, setProject] = useState<ProjectDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const articleRef = useRef<HTMLElement>(null);
+  usePageTitle(project ? project.title : "Work");
 
   useEffect(() => {
     if (!slug) return;
@@ -33,11 +38,22 @@ export function ProjectPage(): ReactElement {
     };
   }, [slug]);
 
+  useEffect(() => {
+    const article = articleRef.current;
+    if (!article || !project || GsapSetup.prefersReducedMotion()) return;
+
+    gsap.fromTo(
+      article.children,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.08 },
+    );
+  }, [project]);
+
   if (error) return <p role="alert">{error}</p>;
-  if (!project) return <p className="wrap">Loading…</p>;
+  if (!project) return <p className="wrap">Loading.</p>;
 
   return (
-    <article className={`wrap ${styles.article}`}>
+    <article ref={articleRef} className={`wrap ${styles.article}`}>
       {project.coverMedia ? (
         <img
           src={project.coverMedia.url}

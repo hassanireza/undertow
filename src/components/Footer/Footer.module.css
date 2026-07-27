@@ -22,11 +22,28 @@
 }
 
 .credit a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
   color: var(--color-ink-soft);
   border-bottom: 1px solid var(--color-line-strong);
 }
 
 .credit a:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.creditIcon {
+  flex-shrink: 0;
+}
+
+.brandLink {
+  color: var(--color-ink-soft);
+  border-bottom: 1px solid transparent;
+}
+
+.brandLink:hover {
   color: var(--color-accent);
   border-color: var(--color-accent);
 }

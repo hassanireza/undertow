@@ -5,15 +5,6 @@ export class ServiceOffering {
   ) {}
 }
 
-export class PricingPlan {
-  constructor(
-    readonly name: string,
-    readonly price: string,
-    readonly features: readonly string[],
-    readonly featured: boolean = false,
-  ) {}
-}
-
 export const SERVICES: readonly ServiceOffering[] = [
   new ServiceOffering(
     "Web Design",
@@ -27,25 +18,4 @@ export const SERVICES: readonly ServiceOffering[] = [
     "Art Direction",
     "One point of view, carried across your site, your film, and everything printed or projected around it.",
   ),
-];
-
-export const PLANS: readonly PricingPlan[] = [
-  new PricingPlan("Starter", "From $1,200", [
-    "Single-page site",
-    "Fully responsive build",
-    "Light motion polish",
-    "Delivered in two weeks",
-  ]),
-  new PricingPlan(
-    "Studio",
-    "From $4,500",
-    ["Multi-page site", "Custom art direction", "One motion sequence included", "Client review portal"],
-    true,
-  ),
-  new PricingPlan("Premium", "Custom scope", [
-    "Full brand and site system",
-    "Bespoke animation work",
-    "Ongoing art direction",
-    "Priority turnaround",
-  ]),
 ];
