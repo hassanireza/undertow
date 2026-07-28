@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 
 import { GsapSetup } from "@/animation/gsapSetup";
+import { ServiceArt } from "@/components/ServiceArt/ServiceArt";
 import { SERVICES } from "@/domain/Offering";
 import { Package } from "@/domain/Package";
 import { usePageTitle } from "@/hooks/usePageTitle";
@@ -60,6 +61,7 @@ export function Home(): ReactElement {
         <div className={styles.serviceGrid}>
           {SERVICES.map((service, i) => (
             <div key={service.title} className={styles.serviceCard}>
+              <ServiceArt variant={service.artVariant} />
               <span className={styles.serviceIndex}>{String(i + 1).padStart(2, "0")}</span>
               <h3 className={styles.serviceTitle}>{service.title}</h3>
               <p>{service.description}</p>

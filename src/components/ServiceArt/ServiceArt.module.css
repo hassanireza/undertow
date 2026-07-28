@@ -1,0 +1,52 @@
+.frame {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  margin-bottom: var(--space-4);
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.strokeInk {
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.strokeSoft {
+  fill: none;
+  stroke: var(--color-line-strong);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.strokeAccent {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fillAccent {
+  fill: var(--color-accent);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 5px;
+  letter-spacing: 0.08em;
+  fill: var(--color-ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
