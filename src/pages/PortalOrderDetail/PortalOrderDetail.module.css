@@ -1,0 +1,109 @@
+.article {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-9);
+}
+
+.heading {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.section {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-top: 1px solid var(--color-line);
+}
+
+.sectionHeading {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-4);
+}
+
+.deliverable {
+  margin-bottom: var(--space-6);
+}
+
+.deliverableTitle {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-3);
+}
+
+.version {
+  border: 1px solid var(--color-line);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.versionMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-3);
+}
+
+.preview {
+  max-width: 100%;
+  margin-bottom: var(--space-3);
+}
+
+.approvalRow {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.approvalStatus {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.comment {
+  font-size: 0.9rem;
+  border-left: 2px solid var(--color-line-strong);
+  padding-left: var(--space-3);
+}
+
+.commentAuthor {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-ink-soft);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.commentForm {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.commentForm textarea {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.messageList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.uploadList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}

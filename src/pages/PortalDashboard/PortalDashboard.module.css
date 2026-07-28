@@ -1,0 +1,39 @@
+.section {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-9);
+}
+
+.heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.logout {
+  margin-top: var(--space-6);
+}

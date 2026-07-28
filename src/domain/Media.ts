@@ -17,12 +17,12 @@ export class Media {
 
   constructor(props: MediaProps) {
     this.id = props.id;
-    this.url = Media.resolveUrl(props.file);
+    this.url = Media.resolveStandaloneUrl(props.file);
     this.mediaType = props.mediaType;
     this.altText = props.altText;
   }
 
-  private static resolveUrl(file: string): string {
+  static resolveStandaloneUrl(file: string): string {
     if (/^https?:\/\//.test(file)) return file;
     const origin = new URL(AppConfig.getInstance().apiBaseUrl).origin;
     return `${origin}${file.startsWith("/") ? "" : "/"}${file}`;

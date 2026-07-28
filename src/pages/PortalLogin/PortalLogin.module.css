@@ -1,0 +1,17 @@
+.section {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-9);
+  max-width: 420px;
+}
+
+.heading {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

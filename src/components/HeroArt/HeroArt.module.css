@@ -1,13 +1,7 @@
 .frame {
   width: 100%;
   height: 100%;
-  display: none;
-}
-
-@media (min-width: 900px) {
-  .frame {
-    display: block;
-  }
+  display: block;
 }
 
 .svg {
