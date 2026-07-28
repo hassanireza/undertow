@@ -29,7 +29,7 @@ function drawLine(el: SVGGraphicsElement): void {
 }
 
 export function ArtDirectionArt(): ReactElement {
-  const ref = usePlayOnceInView<HTMLDivElement>(
+  const { ref, onMouseEnter } = usePlayOnceInView<HTMLDivElement>(
     (container) => {
       const spiralEl = container.querySelector<SVGPathElement>('[data-role="spiral"]');
       const timeline = gsap.timeline();
@@ -73,7 +73,7 @@ export function ArtDirectionArt(): ReactElement {
   );
 
   return (
-    <div ref={ref} className={styles.frame}>
+    <div ref={ref} onMouseEnter={onMouseEnter} className={styles.frame}>
       <svg viewBox="0 0 200 160" className={styles.svg}>
         {FRAMES.map((frame) => (
           <rect

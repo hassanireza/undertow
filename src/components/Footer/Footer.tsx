@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { NewsletterService } from "@/services/NewsletterService";
 
 import { Icon } from "../Icon/Icon";
-import { Logo } from "../Logo/Logo";
 import styles from "./Footer.module.css";
 
 const NAVIGATE_LINKS = [
@@ -105,10 +104,6 @@ export function Footer(): ReactElement {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className={`wrap ${styles.markRow}`}>
-        <Logo size={44} withWordmark={false} />
       </div>
 
       <div className={`wrap ${styles.bottomBar}`}>

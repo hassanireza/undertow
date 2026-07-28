@@ -29,7 +29,7 @@ function centerOf(block: Block): { x: number; y: number } {
 }
 
 export function WebDesignArt(): ReactElement {
-  const ref = usePlayOnceInView<HTMLDivElement>(
+  const { ref, onMouseEnter } = usePlayOnceInView<HTMLDivElement>(
     (container) => {
       const timeline = gsap.timeline({ defaults: { ease: "back.out(1.6)" } });
 
@@ -61,7 +61,7 @@ export function WebDesignArt(): ReactElement {
   );
 
   return (
-    <div ref={ref} className={styles.frame}>
+    <div ref={ref} onMouseEnter={onMouseEnter} className={styles.frame}>
       <svg viewBox="0 0 200 160" className={styles.svg}>
         {BLOCKS.map((block) => (
           <rect

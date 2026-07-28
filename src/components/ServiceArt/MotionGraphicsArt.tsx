@@ -19,7 +19,7 @@ function tickX(index: number): number {
 const FINAL_ROTATION = ((TICK_COUNT - 1) * 360) / TICK_COUNT;
 
 export function MotionGraphicsArt(): ReactElement {
-  const ref = usePlayOnceInView<HTMLDivElement>(
+  const { ref, onMouseEnter } = usePlayOnceInView<HTMLDivElement>(
     (container) => {
       const playhead = container.querySelector<SVGLineElement>('[data-role="playhead"]');
       const spiralEl = container.querySelector<SVGPathElement>('[data-role="spiral"]');
@@ -60,7 +60,7 @@ export function MotionGraphicsArt(): ReactElement {
   );
 
   return (
-    <div ref={ref} className={styles.frame}>
+    <div ref={ref} onMouseEnter={onMouseEnter} className={styles.frame}>
       <svg viewBox="0 0 200 160" className={styles.svg}>
         <path data-role="spiral" d={SPIRAL.toPathData(0)} className={styles.strokeInk} />
 

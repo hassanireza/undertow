@@ -129,15 +129,6 @@
   color: var(--color-accent);
 }
 
-.markRow {
-  display: flex;
-  justify-content: center;
-  padding-top: var(--space-5);
-  padding-bottom: var(--space-5);
-  color: var(--color-line-strong);
-  border-top: 1px solid var(--color-line);
-}
-
 .bottomBar {
   display: flex;
   flex-direction: column;
