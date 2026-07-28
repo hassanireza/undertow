@@ -108,13 +108,6 @@ export function Footer(): ReactElement {
 
       <div className={`wrap ${styles.bottomBar}`}>
         <span>Undertow, {year}</span>
-        <span className={styles.credit}>
-          Site by{" "}
-          <a href="https://hassanireza.github.io/" target="_blank" rel="noreferrer">
-            Reza Hassani
-            <Icon name="arrow-up-right" size={12} className={styles.creditIcon} />
-          </a>
-        </span>
       </div>
     </footer>
   );

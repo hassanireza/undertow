@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 
 import { GsapSetup } from "@/animation/gsapSetup";
+import { HeroArt } from "@/components/HeroArt/HeroArt";
 import { ServiceArt } from "@/components/ServiceArt/ServiceArt";
 import { SERVICES } from "@/domain/Offering";
 import { Package } from "@/domain/Package";
@@ -42,15 +43,20 @@ export function Home(): ReactElement {
   return (
     <>
       <section ref={heroRef} className={`wrap ${styles.hero}`}>
-        <span className={`eyebrow ${styles.animIn}`}>Web design and motion graphics</span>
-        <h1 className={`${styles.title} ${styles.animIn}`}>Undertow</h1>
-        <p className={`${styles.lede} ${styles.animIn}`}>
-          A studio for the current beneath the surface. Restrained web design
-          and motion work, built one deliberate frame at a time.
-        </p>
-        <div className={`${styles.rule} ${styles.animIn}`}>
-          <Link to="/work">View the work</Link>
-          <Link to="/contact">Start a project</Link>
+        <div className={styles.heroText}>
+          <span className={`eyebrow ${styles.animIn}`}>Web design and motion graphics</span>
+          <h1 className={`${styles.title} ${styles.animIn}`}>Undertow</h1>
+          <p className={`${styles.lede} ${styles.animIn}`}>
+            A studio for the current beneath the surface. Restrained web design
+            and motion work, built one deliberate frame at a time.
+          </p>
+          <div className={`${styles.rule} ${styles.animIn}`}>
+            <Link to="/work">View the work</Link>
+            <Link to="/contact">Start a project</Link>
+          </div>
+        </div>
+        <div className={styles.heroArt}>
+          <HeroArt />
         </div>
       </section>
 

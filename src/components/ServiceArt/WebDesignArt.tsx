@@ -45,8 +45,10 @@ export function WebDesignArt(): ReactElement {
       });
 
       const cursor = container.querySelector<SVGCircleElement>('[data-cursor="true"]');
-      if (cursor) {
-        timeline.set(cursor, { opacity: 1 }, 0);
+      const firstBlock = BLOCKS[0];
+      if (cursor && firstBlock) {
+        const start = centerOf(firstBlock);
+        timeline.set(cursor, { opacity: 1, attr: { cx: start.x, cy: start.y } }, 0);
         BLOCKS.forEach((block, i) => {
           const { x, y } = centerOf(block);
           timeline.to(cursor, { attr: { cx: x, cy: y }, duration: 0.35, ease: "power2.inOut" }, i * 0.09 + 0.35);

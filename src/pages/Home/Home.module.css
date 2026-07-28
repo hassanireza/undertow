@@ -8,6 +8,19 @@
   position: relative;
 }
 
+@media (min-width: 900px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: var(--space-6);
+  }
+}
+
+.heroArt {
+  height: min(60vh, 480px);
+}
+
 .title {
   font-size: clamp(3rem, 12vw, 8rem);
   line-height: 0.95;
