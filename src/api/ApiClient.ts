@@ -26,7 +26,8 @@ export class ApiClient {
   }
 
   private authHeaders(path: string): Record<string, string> {
-    if (!path.startsWith("/portal/")) return {};
+    const needsAuth = path.startsWith("/portal/") || path.startsWith("/orders/");
+    if (!needsAuth) return {};
     const token = AuthTokenStore.get();
     return token ? { Authorization: `Token ${token}` } : {};
   }

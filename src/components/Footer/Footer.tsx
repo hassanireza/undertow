@@ -108,6 +108,9 @@ export function Footer(): ReactElement {
 
       <div className={`wrap ${styles.bottomBar}`}>
         <span>Undertow, {year}</span>
+        <Link to="/portal/login" className={styles.brandLink}>
+          Client login
+        </Link>
       </div>
     </footer>
   );

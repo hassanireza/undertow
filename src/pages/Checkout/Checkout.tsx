@@ -1,10 +1,11 @@
 import type { FormEvent, ReactElement } from "react";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { Package } from "@/domain/Package";
 import { usePageTitle } from "@/hooks/usePageTitle";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { AuthService } from "@/services/AuthService";
 import { OrderService } from "@/services/OrderService";
 import { PackageService } from "@/services/PackageService";
 
@@ -12,6 +13,7 @@ import styles from "./Checkout.module.css";
 
 const packageService = new PackageService();
 const orderService = new OrderService();
+const authService = new AuthService();
 
 type SubmitState = "idle" | "submitting" | "error";
 
@@ -29,10 +31,17 @@ export function Checkout(): ReactElement {
     y: 16,
   });
 
+  const isLoggedIn = authService.isAuthenticated();
+  const accountEmail = authService.currentEmail();
+
   useEffect(() => {
     if (!slug) return;
     packageService.getBySlug(slug).then(setPkg).catch(() => setPkg(null));
   }, [slug]);
+
+  useEffect(() => {
+    if (isLoggedIn && accountEmail) setEmail(accountEmail);
+  }, [isLoggedIn, accountEmail]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
@@ -44,7 +53,7 @@ export function Checkout(): ReactElement {
         window.location.href = result.checkoutUrl;
         return;
       }
-      navigate(`/order/${result.orderId}/confirmation`);
+      navigate(isLoggedIn ? "/portal" : `/order/${result.orderId}/confirmation`);
     } catch {
       setState("error");
     }
@@ -65,7 +74,13 @@ export function Checkout(): ReactElement {
         </label>
         <label>
           Email
-          <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input
+            required
+            type="email"
+            value={email}
+            readOnly={isLoggedIn}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </label>
         <button type="submit" disabled={state === "submitting"}>
           {state === "submitting" ? "Processing." : "Continue"}
@@ -74,6 +89,12 @@ export function Checkout(): ReactElement {
         <p className={styles.notice}>
           Payments are running in demo mode while Stripe is being set up. No card is charged.
         </p>
+        {!isLoggedIn && (
+          <p className={styles.notice}>
+            Have an account? <Link to="/portal/login">Sign in</Link> for faster checkout, or{" "}
+            <Link to="/portal/register">create one</Link>.
+          </p>
+        )}
       </form>
     </section>
   );

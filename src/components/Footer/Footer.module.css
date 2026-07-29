@@ -145,5 +145,16 @@
 @media (min-width: 700px) {
   .bottomBar {
     flex-direction: row;
+    justify-content: space-between;
   }
+}
+
+.brandLink {
+  color: var(--color-ink-soft);
+  border-bottom: 1px solid transparent;
+}
+
+.brandLink:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }

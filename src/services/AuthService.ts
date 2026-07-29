@@ -4,14 +4,19 @@ import { AuthTokenStore } from "@/auth/AuthTokenStore";
 export class AuthService {
   constructor(private readonly client: ApiClient = new ApiClient()) {}
 
+  async register(email: string, password: string): Promise<void> {
+    const raw = await this.client.post<Record<string, unknown>>("/auth/register/", { email, password });
+    AuthTokenStore.set(raw["token"] as string, raw["email"] as string);
+  }
+
   async login(email: string, password: string): Promise<void> {
     const raw = await this.client.post<Record<string, unknown>>("/auth/login/", { email, password });
-    AuthTokenStore.set(raw["token"] as string);
+    AuthTokenStore.set(raw["token"] as string, raw["email"] as string);
   }
 
   async acceptInvite(token: string, password: string): Promise<void> {
     const raw = await this.client.post<Record<string, unknown>>("/auth/accept-invite/", { token, password });
-    AuthTokenStore.set(raw["token"] as string);
+    AuthTokenStore.set(raw["token"] as string, raw["email"] as string);
   }
 
   logout(): void {
@@ -20,5 +25,9 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return AuthTokenStore.isAuthenticated();
+  }
+
+  currentEmail(): string | null {
+    return AuthTokenStore.getEmail();
   }
 }

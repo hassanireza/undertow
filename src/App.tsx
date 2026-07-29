@@ -14,6 +14,7 @@ import { PortalAcceptInvite } from "@/pages/PortalAcceptInvite/PortalAcceptInvit
 import { PortalDashboard } from "@/pages/PortalDashboard/PortalDashboard";
 import { PortalLogin } from "@/pages/PortalLogin/PortalLogin";
 import { PortalOrderDetail } from "@/pages/PortalOrderDetail/PortalOrderDetail";
+import { PortalRegister } from "@/pages/PortalRegister/PortalRegister";
 import { Portfolio } from "@/pages/Portfolio/Portfolio";
 import { ProjectPage } from "@/pages/ProjectPage/ProjectPage";
 
@@ -35,6 +36,7 @@ export function App(): ReactElement {
           <Route path="/brand" element={<Brand />} />
 
           <Route path="/portal/login" element={<PortalLogin />} />
+          <Route path="/portal/register" element={<PortalRegister />} />
           <Route path="/portal/accept-invite/:token" element={<PortalAcceptInvite />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/portal" element={<PortalDashboard />} />
