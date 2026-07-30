@@ -135,7 +135,7 @@ export function Nav(): ReactElement {
         </a>
         {isLoggedIn ? (
           <>
-            <NavLink to="/portal" className={styles.menuContact}>
+            <NavLink to="/portal" className={styles.menuContact ?? ""}>
               My portal
             </NavLink>
             <button
@@ -151,7 +151,7 @@ export function Nav(): ReactElement {
             </button>
           </>
         ) : (
-          <NavLink to="/portal/login" className={styles.menuContact}>
+          <NavLink to="/portal/login" className={styles.menuContact ?? ""}>
             Client login
           </NavLink>
         )}
