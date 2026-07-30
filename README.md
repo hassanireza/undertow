@@ -1,15 +1,12 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/UNDERTOW-000000?style=for-the-badge&labelColor=000000&color=a4462c" height="60" alt="Undertow" />
+<img src="https://hassanireza.github.io/undertow/logos/logo-horizontal.svg" width="360" alt="Undertow" />
 
-### Web design and motion graphics, built with restraint.
+<br /><br />
 
-<p>
-  <img src="https://img.shields.io/badge/status-live-a4462c?style=flat-square" alt="status" />
-  <img src="https://img.shields.io/badge/design-editorial-14130f?style=flat-square" alt="design" />
-  <img src="https://img.shields.io/badge/built%20with-precision-14130f?style=flat-square" alt="precision" />
-  <img src="https://img.shields.io/badge/license-proprietary-14130f?style=flat-square" alt="license" />
-</p>
+<img src="https://img.shields.io/badge/status-live-a4462c?style=flat-square" alt="status" />
+<img src="https://img.shields.io/badge/design-editorial-14130f?style=flat-square" alt="design" />
+<img src="https://img.shields.io/badge/license-proprietary-14130f?style=flat-square" alt="license" />
 
 <p>
   <a href="https://hassanireza.github.io/undertow/"><b>View the live site</b></a>
@@ -21,13 +18,7 @@
 
 </div>
 
-<br />
-
-<div align="center">
-<img src="https://img.shields.io/badge/-●───●───●───●───●───●───●───●───●───●-transparent?style=flat-square&color=d9d2bf" height="4" alt="" />
-</div>
-
-<br />
+---
 
 ## The current beneath the surface
 
@@ -43,26 +34,29 @@ This repository is the studio's own site. It is also, quietly, a demonstration o
 <tr>
 <td width="33%" valign="top">
 
-### Web Design
+**01. Web Design**
+
 Interfaces built around one clear hierarchy, considered type, and motion that earns its place.
 
 </td>
 <td width="33%" valign="top">
 
-### Motion Graphics
+**02. Motion Graphics**
+
 Frame-by-frame animation and title sequences for brand film, product launches, and gallery work.
 
 </td>
 <td width="33%" valign="top">
 
-### Art Direction
+**03. Art Direction**
+
 One point of view, carried across a site, a film, and everything printed or projected around it.
 
 </td>
 </tr>
 </table>
 
-<br />
+---
 
 ## Built on a serious foundation
 
@@ -71,6 +65,7 @@ One point of view, carried across a site, a film, and everything printed or proj
 <img src="https://img.shields.io/badge/React-14130f?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
 <img src="https://img.shields.io/badge/TypeScript-14130f?style=for-the-badge&logo=typescript&logoColor=3178C6" alt="TypeScript" />
 <img src="https://img.shields.io/badge/Vite-14130f?style=for-the-badge&logo=vite&logoColor=646CFF" alt="Vite" />
+<img src="https://img.shields.io/badge/GSAP-14130f?style=for-the-badge&logo=greensock&logoColor=88CE02" alt="GSAP" />
 <img src="https://img.shields.io/badge/Django-14130f?style=for-the-badge&logo=django&logoColor=0C4B33" alt="Django" />
 <img src="https://img.shields.io/badge/PostgreSQL-14130f?style=for-the-badge&logo=postgresql&logoColor=4169E1" alt="PostgreSQL" />
 
@@ -78,29 +73,23 @@ One point of view, carried across a site, a film, and everything printed or proj
 
 <br />
 
-Strict TypeScript, a class-based domain model, and a clean separation between what the studio shows and how it is served. Nothing here is templated. The same discipline we bring to client work is the discipline this site is built with.
+Strict TypeScript, a class-based domain model, and a clean separation between what the studio shows and how it is served. Scroll-driven motion is built to disappear for anyone who prefers it off, and to hold still the moment it has said what it needed to say.
 
-<br />
-
-<div align="center">
-<img src="https://img.shields.io/badge/-●───●───●───●───●───●───●───●───●───●-transparent?style=flat-square&color=d9d2bf" height="4" alt="" />
-</div>
-
-<br />
+---
 
 ## Selected work
 
 A living portfolio of shipped projects, spanning commerce, editorial, identity systems, and motion. Every project on the site is real work, not placeholder content.
 
 <div align="center">
-<a href="https://hassanireza.github.io/undertow/work"><b>Browse the full portfolio →</b></a>
+<a href="https://hassanireza.github.io/undertow/work"><b>Browse the full portfolio</b></a>
 </div>
 
 <br />
 
 ## Working together
 
-Every engagement starts as a conversation, not a fixed menu. Three starting points:
+Every engagement starts as a conversation, not a fixed menu. Three starting points, browsable and orderable directly from the site.
 
 | | Starter | Studio | Premium |
 |---|---|---|---|
@@ -109,21 +98,17 @@ Every engagement starts as a conversation, not a fixed menu. Three starting poin
 | **Timeline** | Two weeks | Project-based | Priority turnaround |
 
 <div align="center">
-<a href="https://hassanireza.github.io/undertow/contact"><b>Start a conversation →</b></a>
+<a href="https://hassanireza.github.io/undertow/contact"><b>Start a conversation</b></a>
 </div>
 
-<br />
-
-<div align="center">
-<img src="https://img.shields.io/badge/-●───●───●───●───●───●───●───●───●───●-transparent?style=flat-square&color=d9d2bf" height="4" alt="" />
-</div>
-
-<br />
+---
 
 <div align="center">
 
-**Undertow**. Web design and motion graphics.
+<img src="https://hassanireza.github.io/undertow/logos/wordmark.svg" width="140" alt="" />
 
-Site by [Reza Hassani](https://hassanireza.github.io/) · [Full portfolio](https://hassanireza.github.io/portfolio)
+<br /><br />
+
+Web design and motion graphics.
 
 </div>
