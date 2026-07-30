@@ -1,6 +1,6 @@
 import type { FormEvent, ReactElement } from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { ApiError } from "@/api/ApiError";
 import { usePageTitle } from "@/hooks/usePageTitle";
@@ -10,7 +10,7 @@ import styles from "../PortalLogin/PortalLogin.module.css";
 
 const authService = new AuthService();
 
-type SubmitState = "idle" | "submitting" | "error";
+type SubmitState = "idle" | "submitting" | "success" | "error";
 
 function extractErrorMessage(error: unknown): string {
   if (error instanceof ApiError && error.body && typeof error.body === "object") {
@@ -26,7 +26,6 @@ function extractErrorMessage(error: unknown): string {
 
 export function PortalRegister(): ReactElement {
   usePageTitle("Create your account");
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [state, setState] = useState<SubmitState>("idle");
@@ -37,11 +36,24 @@ export function PortalRegister(): ReactElement {
     setState("submitting");
     try {
       await authService.register(email, password);
-      navigate("/");
+      setState("success");
     } catch (error) {
       setErrorMessage(extractErrorMessage(error));
       setState("error");
     }
+  }
+
+  if (state === "success") {
+    return (
+      <section className={`wrap ${styles.section}`}>
+        <span className="eyebrow">Account requested</span>
+        <h1 className={styles.heading}>Thanks. Your request is in.</h1>
+        <p>
+          We review new accounts before activating them. Once approved, you can sign in with the email
+          and password you just set.
+        </p>
+      </section>
+    );
   }
 
   return (

@@ -5,8 +5,7 @@ export class AuthService {
   constructor(private readonly client: ApiClient = new ApiClient()) {}
 
   async register(email: string, password: string): Promise<void> {
-    const raw = await this.client.post<Record<string, unknown>>("/auth/register/", { email, password });
-    AuthTokenStore.set(raw["token"] as string, raw["email"] as string);
+    await this.client.post<Record<string, unknown>>("/auth/register/", { email, password });
   }
 
   async login(email: string, password: string): Promise<void> {

@@ -1,12 +1,16 @@
 import type { ReactElement } from "react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
+
+import { AuthService } from "@/services/AuthService";
 
 import { Icon } from "../Icon/Icon";
 import { Logo } from "../Logo/Logo";
 import styles from "./Nav.module.css";
+
+const authService = new AuthService();
 
 const LINKS = [
   { to: "/work", label: "Work" },
@@ -53,6 +57,8 @@ export function Nav(): ReactElement {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const trapRef = useRef<FocusTrap | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  const isLoggedIn = authService.isAuthenticated();
 
   useEffect(() => {
     setIsOpen(false);
@@ -127,6 +133,28 @@ export function Nav(): ReactElement {
           <Icon name="mail" size={16} />
           hello@undertow.dev
         </a>
+        {isLoggedIn ? (
+          <>
+            <NavLink to="/portal" className={styles.menuContact}>
+              My portal
+            </NavLink>
+            <button
+              type="button"
+              className={styles.menuContact}
+              onClick={() => {
+                authService.logout();
+                setIsOpen(false);
+                navigate("/");
+              }}
+            >
+              Sign out
+            </button>
+          </>
+        ) : (
+          <NavLink to="/portal/login" className={styles.menuContact}>
+            Client login
+          </NavLink>
+        )}
       </div>
     </div>
   );

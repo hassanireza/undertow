@@ -1,10 +1,12 @@
 import type { FormEvent, ReactElement } from "react";
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
+import { AuthService } from "@/services/AuthService";
 import { NewsletterService } from "@/services/NewsletterService";
 
+import { GithubIcon } from "../GithubIcon/GithubIcon";
 import { Icon } from "../Icon/Icon";
 import styles from "./Footer.module.css";
 
@@ -17,17 +19,19 @@ const NAVIGATE_LINKS = [
 
 const ELSEWHERE_LINKS = [
   { href: "mailto:hello@undertow.dev", label: "Email", icon: "mail" as const, external: false },
-  { href: "https://github.com/hassanireza", label: "GitHub", icon: "github" as const, external: true },
 ];
 
 const newsletterService = new NewsletterService();
+const authService = new AuthService();
 
 type SubscribeState = "idle" | "submitting" | "success" | "error";
 
 export function Footer(): ReactElement {
   const year = new Date().getFullYear();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [state, setState] = useState<SubscribeState>("idle");
+  const isLoggedIn = authService.isAuthenticated();
 
   async function handleSubscribe(event: FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
@@ -39,6 +43,11 @@ export function Footer(): ReactElement {
     } catch {
       setState("error");
     }
+  }
+
+  function handleSignOut(): void {
+    authService.logout();
+    navigate("/");
   }
 
   return (
@@ -101,16 +110,36 @@ export function Footer(): ReactElement {
                   {link.label}
                 </a>
               ))}
+              <a
+                href="https://github.com/hassanireza"
+                className={styles.footerLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GithubIcon size={14} className={styles.linkIcon} />
+                GitHub
+              </a>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className={`wrap ${styles.bottomBar}`}>
-        <span>Undertow, {year}</span>
-        <Link to="/portal/login" className={styles.brandLink}>
-          Client login
-        </Link>
+        <div className={styles.bottomBar}>
+          <span>Undertow, {year}</span>
+          {isLoggedIn ? (
+            <span className={styles.portalLinks}>
+              <Link to="/portal" className={styles.brandLink}>
+                My portal
+              </Link>
+              <button type="button" onClick={handleSignOut} className={styles.signOutLink}>
+                Sign out
+              </button>
+            </span>
+          ) : (
+            <Link to="/portal/login" className={styles.brandLink}>
+              Client login
+            </Link>
+          )}
+        </div>
       </div>
     </footer>
   );

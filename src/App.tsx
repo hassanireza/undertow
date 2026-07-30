@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { Nav } from "@/components/Nav/Nav";
 import { Footer } from "@/components/Footer/Footer";
 import { ProtectedRoute } from "@/components/ProtectedRoute/ProtectedRoute";
+import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
 import { Brand } from "@/pages/Brand/Brand";
 import { Checkout } from "@/pages/Checkout/Checkout";
 import { Contact } from "@/pages/Contact/Contact";
@@ -21,6 +22,7 @@ import { ProjectPage } from "@/pages/ProjectPage/ProjectPage";
 export function App(): ReactElement {
   return (
     <>
+      <ScrollToTop />
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>

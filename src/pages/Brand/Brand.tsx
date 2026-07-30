@@ -28,7 +28,6 @@ const ICONS: readonly IconName[] = [
   "location",
   "calendar",
   "download",
-  "github",
   "linkedin",
   "play",
   "quote",
@@ -142,7 +141,7 @@ export function Brand(): ReactElement {
         <span className="eyebrow">Iconography</span>
         <h2 className={styles.blockHeading}>Icon pack</h2>
         <p className={styles.intro} style={{ marginBottom: "var(--space-6)" }}>
-          Seventeen icons drawn in the same hand as the mark. Uniform stroke, fully rounded caps and
+          Sixteen icons drawn in the same hand as the mark. Uniform stroke, fully rounded caps and
           joins, no fills, no hard corners.
         </p>
 
