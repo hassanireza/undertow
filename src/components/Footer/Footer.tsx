@@ -127,15 +127,15 @@ export function Footer(): ReactElement {
           <span>Undertow, {year}</span>
           {isLoggedIn ? (
             <span className={styles.portalLinks}>
-              <Link to="/portal" className={styles.brandLink}>
+              <Link to="/portal" className={styles.portalButton}>
                 My portal
               </Link>
-              <button type="button" onClick={handleSignOut} className={styles.signOutLink}>
+              <button type="button" onClick={handleSignOut} className={styles.portalButton}>
                 Sign out
               </button>
             </span>
           ) : (
-            <Link to="/portal/login" className={styles.brandLink}>
+            <Link to="/portal/login" className={styles.portalButton}>
               Client login
             </Link>
           )}

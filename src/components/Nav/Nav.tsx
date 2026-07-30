@@ -129,10 +129,6 @@ export function Nav(): ReactElement {
       </nav>
 
       <div className={styles.menuFooter}>
-        <a href="mailto:hello@undertow.dev" className={styles.menuContact}>
-          <Icon name="mail" size={16} />
-          hello@undertow.dev
-        </a>
         {isLoggedIn ? (
           <>
             <NavLink to="/portal" className={styles.menuContact ?? ""}>

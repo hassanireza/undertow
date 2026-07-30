@@ -157,32 +157,24 @@
 .portalLinks {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
-.signOutLink {
-  background: none;
-  border: none;
-  padding: 0;
+.portalButton {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 0.08em;
-  color: var(--color-ink-soft);
+  text-transform: uppercase;
+  padding: var(--space-1) var(--space-3);
   cursor: pointer;
-  border-bottom: 1px solid transparent;
+  transition: background 0.3s var(--ease-standard), color 0.3s var(--ease-standard);
 }
 
-.signOutLink:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-}
-
-.brandLink {
-  color: var(--color-ink-soft);
-  border-bottom: 1px solid transparent;
-}
-
-.brandLink:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+.portalButton:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
 }
